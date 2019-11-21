@@ -54,7 +54,9 @@ def enviar_bytes(display):
     for byte in display:
         enviar_byte(byte)
 
-configurar_i2c()
+#configurar_i2c()
+
+enviar_byte(0xAE)
 
 for i in range(8):
     enviar_byte(0x40)
