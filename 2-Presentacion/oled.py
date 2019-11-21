@@ -6,10 +6,9 @@ codigo_familia = 0x78
 oled = smbus.SMBus(1)
 
 def enviar_byte(byte):
-    oled.write_byte(codigo_familia , byte)
+    oled.write_byte_data(codigo_familia , 0x00, byte)
 
 def configurar_i2c():
-    enviar_byte(0x00)
     enviar_byte(0xAE)
 
     enviar_byte(0xA8)
