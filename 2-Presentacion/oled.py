@@ -2,7 +2,7 @@ import smbus
 import time
 
 
-codigo_familia = 0x78
+codigo_familia = 0x3C
 oled = smbus.SMBus(1)
 
 def enviar_byte(byte):
