@@ -1,66 +1,46 @@
 import smbus
-import time
 
+class DisplayOled:
 
-codigo_familia = 0x3C
-oled = smbus.SMBus(1)
+    def __init__(self, codigo_familia = 0x3C, bus = 1):
+        self.codigo_familia = 0x3C
+        self.oled = smbus.SMBus(1)
 
-def enviar_byte(byte):
-    oled.write_byte_data(codigo_familia , 0x00, byte)
+    def iniciar_modulo(self):
+        archivo_data = open('./Resouce/codes/cmd_comandos.txt')
+        data = []
+        
+        for comando in archivo_data:
+            data.append( int( comando ) )
+        
+        archivo_data.close()
 
-def configurar_i2c():
-    enviar_byte(0xAE)
+        self.configurar_modulo(data)
+        self.borrar_pantalla()
 
-    enviar_byte(0xA8)
-    enviar_byte(0x3F)
+    def configurar_modulo(self, data):
+        self.oled.write_block_data( self.codigo_familia, 0x00 ,data )
+
+    def cargar_display(self, display):
+        for i in range(8):
+            self.setear_pagina(i)
+            for j in range(128):
+                self.enviar_caracter(display[128*i + j])
+
+    def borrar_pantalla(self):
+        for i in range(8):
+            self.setear_pagina(i)
+            for j in range(128):
+                self.enviar_caracter(0)
     
-    enviar_byte(0xD3)
-    enviar_byte(0x00)
+    def enviar_caracter(self, caracter):
+        self.oled.write_byte_data(self.codigo_familia, 0x40, caracter)
 
-    enviar_byte(0x40)
-
-    enviar_byte(0xA1)
-
-    enviar_byte(0xC8)
-
-    enviar_byte(0xDA)
-    enviar_byte(0x12)
-
-    enviar_byte(0x81)
-    enviar_byte(0x7F)
-
-    enviar_byte(0xA4)
-    enviar_byte(0xA6)
-
-    enviar_byte(0xD5)
-    enviar_byte(0x80)
-
-    enviar_byte(0x8D)
-    enviar_byte(0x14)
-
-    enviar_byte(0xAF)
-
-    enviar_byte(0x21)
-    enviar_byte(0x00)
-    enviar_byte(0x7f)
-    enviar_byte(0x22)
-    enviar_byte(0x00)
-    enviar_byte(0x07)
-
-    enviar_byte(0x20)
-    enviar_byte(0x00)
-
-def enviar_bytes(display):
-    for byte in display:
-        enviar_byte(byte)
-
-#configurar_i2c()
-
-enviar_byte(0xAE)
-
-for i in range(8):
-    enviar_byte(0x40)
-    enviar_byte(0x81)
+    def setear_pagina(self, page):
+        self.oled.write_byte_data(self.codigo_familia, 0x00, 0xB0 | (page & 0x0F) )
+        self.oled.write_byte_data(self.codigo_familia, 0x00, 0x02)
+        self.oled.write_byte_data(self.codigo_familia, 0x00, 0x10 | (0x01 >> 4))
+    
 
 
 
