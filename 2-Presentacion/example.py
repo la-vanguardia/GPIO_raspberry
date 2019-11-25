@@ -12,7 +12,7 @@ display = [0 for x in range(1024)]
 
 fontVar = font.FontOled()
 
-letra = fontVar.get_letra('H')
+letra = fontVar.get_frase('Hola pibe! @')
 
 for i in range(len(letra)):
     display[i] = letra[i]

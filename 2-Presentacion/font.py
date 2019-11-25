@@ -24,6 +24,13 @@ class FontOled:
 
         return letra_oled
 
+    def get_frase(self, frase):
+        ubicaciones = []
+        for letra in frase:
+            ubicaciones.append( self.get_letra(letra) )
+
+        return ubicaciones
+
     def ubicacion_letra(self, letra):
         for i in range( len(self.letras) ):
             if( self.letras[i] == letra ):

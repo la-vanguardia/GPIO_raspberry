@@ -1,7 +1,5 @@
-ubicacion_fila = open('./letras.txt')
+test = 'hola como andas'
 
-letras = ubicacion_fila.read().split('\n')
 
-for i in range(len(letras)):
-    if letras[i] == 'H':
-        print(i + 1)
+for letra in test:
+    print(letra)
