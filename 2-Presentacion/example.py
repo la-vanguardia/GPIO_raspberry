@@ -12,9 +12,11 @@ display = [0 for x in range(1024)]
 
 fontVar = font.FontOled()
 
-letra = fontVar.get_frase('Hola pibe! @')
+ubicaciones = fontVar.get_frase('Hola pibe! @')
 
-for i in range(len(letra)):
-    display[i] = letra[i]
+for j in range(len(ubicaciones)):
+    letra = ubicaciones[j]
+    for i in range(len(letra)):
+        display[i + j] = letra[i]
 
 displayOled.cargar_display( display )
