@@ -24,7 +24,7 @@ def bmp_to_display(file_path):
             if modulo_j == 0:
                 ubicacion = 16*j + i
             if imagen.getpixel((i,j)) == 0:
-                display[ ubicacion ] = 1 << ( modulo_j )
+                display[ ubicacion ] += 1 << ( modulo_j )
 
 
 
