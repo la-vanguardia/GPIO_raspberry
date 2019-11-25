@@ -14,4 +14,7 @@ fontVar = font.FontOled()
 
 letra = fontVar.letra(0x40)
 
-displayOled.cargar_display( displayExample )
+for i in len(letra):
+    display[i] = letra[i]
+
+displayOled.cargar_display( display )
