@@ -12,9 +12,9 @@ display = [0 for x in range(1024)]
 
 fontVar = font.FontOled()
 
-letra = fontVar.letra(0x40)
+letra = fontVar.get_letra(0x40)
 
-for i in len(letra):
+for i in range(len(letra)):
     display[i] = letra[i]
 
 displayOled.cargar_display( display )
