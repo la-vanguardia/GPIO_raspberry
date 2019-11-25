@@ -17,6 +17,6 @@ ubicaciones = fontVar.get_frase('Hola pibe! @')
 for j in range(len(ubicaciones)):
     letra = ubicaciones[j]
     for i in range(len(letra)):
-        display[i + j] = letra[i]
+        display[i + 8*j] = letra[i]
 
 displayOled.cargar_display( display )
