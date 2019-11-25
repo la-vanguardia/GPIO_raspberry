@@ -9,7 +9,7 @@ class FontOled:
 
         ubicacion_fila = open('./letras.txt')
 
-        self.letras = ubicacion_fila.split('\n')
+        self.letras = ubicacion_fila.read().split('\n')
 
         ubicacion_fila.close()
 
