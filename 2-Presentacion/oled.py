@@ -7,7 +7,7 @@ class DisplayOled:
         self.oled = smbus.SMBus(1)
 
     def iniciar_modulo(self):
-        archivo_data = open('./Resouce/codes/cmd_comands.txt')
+        archivo_data = open('./cmd_comands.txt')
         data = []
         
         for comando in archivo_data:
