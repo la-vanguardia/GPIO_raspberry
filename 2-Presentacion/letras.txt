@@ -12,7 +12,8 @@ alarm
 sound
 FF
 FR
-atari
+atari_left
+atari_right
 0_dig
 1_dig
 2_dig
@@ -25,8 +26,10 @@ atari
 9_dig
 e_inv
 Ee
-top_head
-bottom_head
+top_head_left
+top_head_right
+bottom_head_left
+bottom_head_right
  
 !
 "
