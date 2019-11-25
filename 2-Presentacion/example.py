@@ -12,7 +12,7 @@ display = [0 for x in range(1024)]
 
 fontVar = font.FontOled()
 
-letra = fontVar.get_letra(0x40)
+letra = fontVar.get_letra('H')
 
 for i in range(len(letra)):
     display[i] = letra[i]
