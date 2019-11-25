@@ -27,7 +27,7 @@ class FontOled:
     def ubicacion_letra(self, letra):
         for i in range( len(self.letras) ):
             if( self.letras[i] == letra ):
-                return i*8
+                return (i+2)*8
 
         
 
