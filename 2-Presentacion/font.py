@@ -25,8 +25,9 @@ class FontOled:
         return letra_oled
 
     def get_frase(self, frase):
+        frase_separada = self.obtener_comandos(frase)
         ubicaciones = []
-        for letra in frase:
+        for letra in frase_separada:
             ubicaciones.append( self.get_letra(letra) )
 
         return ubicaciones
@@ -36,6 +37,22 @@ class FontOled:
             if( self.letras[i] == letra ):
                 return (i)*8
 
+    def obtener_comandos(self, frase):
+        comando_reconocido = False
+        lista_comandos = []
+        cmd = ''
+        for letra in frase:
+            if letra == '$':
+                comando_reconocido = ~comando_reconocido
+                if ~comando_reconocido:
+                    lista_comandos.append(cmd)
+                    cmd = ''
+            else:
+                if comando_reconocido:
+                    cmd += letra
+                else:
+                    lista_comandos.append(letra)
+        return lista_comandos
         
 
         

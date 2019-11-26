@@ -15,10 +15,6 @@ display = [0 for x in range(1024)]
 fontVar = font.FontOled()
 win = window.Window()
 
-win.cargar_elemento(fontVar, 'flecha_arriba', [8,0])
-
-win.cargar_elemento(fontVar, 'H', [0,0])
-
 ubicaciones = fontVar.get_frase('Hola Buenas tardes!')
 
 
