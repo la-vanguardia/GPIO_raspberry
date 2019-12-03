@@ -26,10 +26,10 @@ def ClickBotonConectar():                   #definimos click boton conectar
         TextBoxXXDos.delete(0,END)
         TextBoxXXDos.insert(0,50)
       
-def ClickBotonSalir(temporizadores= []):                      #definimos el evento click boton salir
+def ClickBotonSalir():                      #definimos el evento click boton salir
     Eleccion=messagebox.askokcancel(message="¿Seguro que desea salir?",title="Pregunta")
     if Eleccion == True:
-        for temp in temporizadores:
+        for temp in tareas:
             temp.join()
             temp.stop()
         App.destroy()
@@ -158,6 +158,8 @@ cliente = mqttClient.crear_cliente()
 mqttClient.conectar_servidor( cliente )
 
 mqttClient.enviar_mensaje(cliente, 'HOLA!')
+
+tareas[0].start()
 
 App.mainloop()                      #corremos la App
     
