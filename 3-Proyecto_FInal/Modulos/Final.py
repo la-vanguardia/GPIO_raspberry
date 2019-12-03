@@ -23,13 +23,12 @@ def ClickBotonConectar():                   #definimos click boton conectar
         TextBoxXXDos.delete(0,END)
         TextBoxXXDos.insert(0,50)
       
-def ClickBotonSalir():                      #definimos el evento click boton salir
+def ClickBotonSalir(temporizadores= []):                      #definimos el evento click boton salir
     Eleccion=messagebox.askokcancel(message="¿Seguro que desea salir?",title="Pregunta")
     if Eleccion == True:
-        Temporizador.stop()  
-        TemporizadorDos.stop()
-        Temporizador.join()  
-        TemporizadorDos.join()
+        for temp in temporizadores:
+            temp.join()
+            temp.stop()
         App.destroy()
 
 ######## creamos la ventana principal###########
