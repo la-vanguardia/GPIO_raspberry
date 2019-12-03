@@ -19,7 +19,7 @@ def conectar_servidor(client_name="Lauti_Isa", host='127.0.02', port=1883):
     client.on_connect = on_connect
     client.on_message = on_message
     client.connect(host= host, port= port)
-    client.loop_forever()
+    client.loop()
 
 # Blocking call that processes network traffic, dispatches callbacks and
 # handles reconnecting.
