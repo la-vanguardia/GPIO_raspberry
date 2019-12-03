@@ -14,7 +14,7 @@ def on_message(client, userdata, msg):
     print(str(msg.payload))
     client.publish(topic='Replica lauti_isa', payload=msg.payload, qos=2, retain=False)
 
-def crear_cliente(client_name="Lauti_Isa", host='127.0.02', port=1883):
+def crear_cliente(client_name="Lauti_Isa", host='127.0.0.1', port=1883):
     client = mqtt.Client(client_id= client_name, clean_session=False)
     client.on_connect = on_connect
     client.on_message = on_message
