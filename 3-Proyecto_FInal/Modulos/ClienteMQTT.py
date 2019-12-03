@@ -18,6 +18,7 @@ def conectar_servidor():
     client.on_connect = on_connect
     client.on_message = on_message
     client.connect(host='127.0.0.2', port=1883)
+    print('HOLA PUTO!')
     client.loop_misc()
 
 # Blocking call that processes network traffic, dispatches callbacks and
