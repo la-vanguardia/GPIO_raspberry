@@ -9,7 +9,7 @@ class Acelerometro:
             self.enviarDato(0x2A, 0x00)
             self.enviarDato(0x00, 0x2D)
             self.enviarDato(0x2A, 0x01)
-        finally:
+        except:
             print('Conecte el dispositivo')
 
 
