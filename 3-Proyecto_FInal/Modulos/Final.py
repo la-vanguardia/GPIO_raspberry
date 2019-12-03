@@ -152,6 +152,7 @@ BotonSalir.place(x=700,y=70)          #ubicamos el boton
 
 tareas = []
 
+tareas.append( Repetir(1, enviar_dato) )
 
 mqttClient.conectar_servidor()
 App.mainloop()                      #corremos la App
