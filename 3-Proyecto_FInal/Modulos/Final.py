@@ -154,6 +154,10 @@ tareas = []
 
 tareas.append( Repetir(1, enviar_dato) )
 
-mqttClient.conectar_servidor()
+cliente = mqttClient.crear_cliente()
+mqttClient.conectar_servidor( cliente )
+
+mqttClient.enviar_mensaje(cliente, 'HOLA!')
+
 App.mainloop()                      #corremos la App
     
