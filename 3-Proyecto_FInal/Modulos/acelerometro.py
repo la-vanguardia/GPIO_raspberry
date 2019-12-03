@@ -14,7 +14,7 @@ class Acelerometro:
 
 
     def leerAceleraciones(self):
-        aceleraciones =  self.acelerometro.read_block_data(self.codigo_familia, 0x01, 6) 
+        aceleraciones =  self.acelerometro.read_i2c_block_data(self.codigo_familia, 0x01, 6) 
         return aceleraciones
     
     def enviarDato(self, registro, dato):
