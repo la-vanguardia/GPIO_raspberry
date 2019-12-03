@@ -29,9 +29,9 @@ def ClickBotonConectar():                   #definimos click boton conectar
 def ClickBotonSalir():                      #definimos el evento click boton salir
     Eleccion=messagebox.askokcancel(message="¿Seguro que desea salir?",title="Pregunta")
     if Eleccion == True:
-        for temp in tareas:
-            temp.join()
-            temp.stop()
+        for tarea in tareas:
+            tarea.join()
+            tarea.stop()
         App.destroy()
 
 ######## creamos la ventana principal###########
@@ -152,7 +152,7 @@ BotonSalir.place(x=700,y=70)          #ubicamos el boton
 
 tareas = []
 
-tareas.append( Repetir(1, enviar_dato) )
+tareas.append( Repetir(5, enviar_dato) )
 
 cliente = mqttClient.crear_cliente()
 mqttClient.conectar_servidor( cliente )
