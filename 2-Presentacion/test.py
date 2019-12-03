@@ -1,4 +1,4 @@
-test = '$HOLA$hola como $test_2$ andas $cosa$'
+test = '$HOLA$hola $$$ como $test_2$ andas $cosa$'
 
 
 comando_enable = False

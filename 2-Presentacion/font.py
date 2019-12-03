@@ -42,7 +42,7 @@ class FontOled:
         lista_comandos = []
         cmd = ''
         for letra in frase:
-            if letra == '$':
+            if letra == '$' and len(cmd)!=0:
                 comando_reconocido = ~comando_reconocido
                 if ~comando_reconocido:
                     lista_comandos.append(cmd)
