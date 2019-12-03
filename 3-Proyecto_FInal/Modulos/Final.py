@@ -12,7 +12,10 @@ def Tarea():                               #definimos Tarea()
     
 def TareaDos():
     print ("Ejecutar TareaDos\n")          #definimos TareaDos()
-           
+
+def enviar_dato():
+    print('hola!')     
+
 def ClickBotonConectar():                   #definimos click boton conectar
     if BotonConectar["text"]=="Conectar":
         BotonConectar["text"]="Desconec."
@@ -146,7 +149,10 @@ BotonSalir = Button(App,text="Salir",command =ClickBotonSalir) #creamos un boton
 BotonSalir.place(x=700,y=70)          #ubicamos el boton
 ###### fin dos botones ################
 
-mqttClient.conectar_servidor()
 
+tareas = []
+
+
+mqttClient.conectar_servidor()
 App.mainloop()                      #corremos la App
     
