@@ -19,6 +19,7 @@ class Acelerometro:
     
     def enviarDato(self, registro, dato):
         self.acelerometro.write_byte_data(self.codigo_familia, registro, dato)
+
         
     
 
