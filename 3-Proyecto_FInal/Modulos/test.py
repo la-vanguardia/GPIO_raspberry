@@ -1,8 +1,30 @@
-puto = []
-for i in range(11):
-    puto.append(0)
+import json
 
-test = [1, 2, 3, 4, 5, 6]
-puto[:6] = test
+test = {
+    'XX': [251, 0],
+    'YY': 30,
+    'YY_LSB': 0,
+    'ZZ': 30,
+    'ZZ_LSB': 30,
+    'Nombre': 'Pepe',
+}
 
-print(puto)
+test_2 = {
+    'cosa': 1,
+    'hola': 3
+}
+
+
+for keys in test_2:
+    print(keys)
+    print('\n')
+
+
+
+test['cosa'] = test_2
+
+test_json = json.dumps(test)
+
+test = json.loads(test_json)
+
+print(test['XX'][0])

@@ -7,31 +7,22 @@ import ClienteMQTT as mqttClient
 #from time import sleep
 
             
-def Tarea():                               #definimos Tarea()
-    print ("Ejecutar Tarea\n")
-    
-def TareaDos():
-    print ("Ejecutar TareaDos\n")          #definimos TareaDos()
-
-def enviar_dato():
-    print('hola!')     
-
 def ClickBotonConectar():                   #definimos click boton conectar
     if BotonConectar["text"]=="Conectar":
         BotonConectar["text"]="Desconec."
         TextBoxXXDos.delete(0,END)
-        TextBoxXXDos.insert(0,25) 
+        mqttClient.conectar_servidor( cliente )
     else:
         BotonConectar["text"]="Conectar"
         TextBoxXXDos.delete(0,END)
-        TextBoxXXDos.insert(0,50)
+        cliente.stop()
       
 def ClickBotonSalir():                      #definimos el evento click boton salir
     Eleccion=messagebox.askokcancel(message="¿Seguro que desea salir?",title="Pregunta")
     if Eleccion == True:
         for tarea in tareas:
-            tarea.join()
             tarea.stop()
+            tarea.join()
         App.destroy()
 
 ######## creamos la ventana principal###########
@@ -151,15 +142,6 @@ BotonSalir.place(x=700,y=70)          #ubicamos el boton
 
 
 tareas = []
-
-tareas.append( Repetir(5, enviar_dato) )
-
 cliente = mqttClient.crear_cliente()
-mqttClient.conectar_servidor( cliente )
 
-mqttClient.enviar_mensaje(cliente, 'HOLA!')
-
-tareas[0].start()
-
-App.mainloop()                      #corremos la App
     

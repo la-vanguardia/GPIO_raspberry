@@ -10,14 +10,13 @@ class Clock:
         self.spi.mode = 1
         self.spi.cshigh = True
         self.spi.xfer2([0x8F, 0x00])
-        self.spi.xfer2(hora_inicial)
-        self.hora = [0x00, 1, 2, 3, 4, 5, 6, 7]
+        self.spi.xfer2( 0x80 + hora_inicial)
 
     def cambiar_hora(self, hora):
-        self.spi.xfer2(hora)
+        self.spi.xfer2(0x80 + hora)
 
     def devolver_hora(self):
-        datos = self.spi.xfer2( self.hora )
+        datos = self.spi.xfer2( [0x00, 1, 2, 3, 4, 5, 6, 7] )
         del datos[4]
         del datos[0]
         datos[0], datos[2] = datos[2], datos[0]
