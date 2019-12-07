@@ -2,10 +2,8 @@ import acelerometro
 import ds18b20
 import clock
 from Final import *
-<<<<<<< HEAD
 from ClienteMQTT import *
 import json
-=======
 from modulos import *
 import ClienteMQTT as mqttClient
 
@@ -27,10 +25,7 @@ def complemento_2_decimal(numero):
     return numero_convertido
 
 
->>>>>>> 703ebda82eb3daf976ddac209ae3b5be772f9fb6
 
-
-<<<<<<< HEAD
 Group_1_datos = [
     'XX': TextBoxXXUno,
     'YY': TextBoxYYUno,
@@ -123,24 +118,12 @@ temperatura = ds18b20.DS18B20()
 
 tareas.append( Repetir(1, actualizar_mediciones) )
 tareas.append( Repetir(.1, actualizar_valores))
-=======
-#sensor_acel = acelerometro.Acelerometro(0x1C)
-#clock = clock.Clock( hora )
-#temperatura = ds18b20.DS18B20()
-#print( acelerometro.leerAceleraciones() )
-#print( clock.devolver_hora() )
-#print( temperatura.tempC() )
 
-tareas.append( Repetir(.5, enviar_dato) )
-tareas.append( Repetir(1, mostrar_datos))
->>>>>>> 703ebda82eb3daf976ddac209ae3b5be772f9fb6
 
 for tarea in tareas:
     tarea.start()
 
-<<<<<<< HEAD
-App.mainloop()
-=======
+
 App.mainloop()                      #corremos la App
     
->>>>>>> 703ebda82eb3daf976ddac209ae3b5be772f9fb6
+

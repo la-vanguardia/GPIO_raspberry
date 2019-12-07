@@ -11,11 +11,7 @@ def ClickBotonConectar():                   #definimos click boton conectar
     if BotonConectar["text"]=="Conectar":
         BotonConectar["text"]="Desconec."
         TextBoxXXDos.delete(0,END)
-<<<<<<< HEAD
-=======
-        TextBoxXXDos.insert(0,25) 
->>>>>>> 703ebda82eb3daf976ddac209ae3b5be772f9fb6
-        mqttClient.conectar_servidor( cliente )
+        mqttClient.conectar_servidor(cliente)
     else:
         BotonConectar["text"]="Conectar"
         TextBoxXXDos.delete(0,END)
@@ -147,8 +143,4 @@ BotonSalir.place(x=700,y=70)          #ubicamos el boton
 
 tareas = []
 cliente = mqttClient.crear_cliente()
-<<<<<<< HEAD
 
-    
-=======
->>>>>>> 703ebda82eb3daf976ddac209ae3b5be772f9fb6
