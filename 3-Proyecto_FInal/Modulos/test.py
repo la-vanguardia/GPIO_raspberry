@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import json
 
 test = {
@@ -28,3 +29,12 @@ test_json = json.dumps(test)
 test = json.loads(test_json)
 
 print(test['XX'][0])
+=======
+dato = 0x00 + 32
+
+if (dato>>7) == 1:
+    dato = -1 * (dato & 0x7F)
+    print(dato)
+else:
+    print(dato)
+>>>>>>> 703ebda82eb3daf976ddac209ae3b5be772f9fb6

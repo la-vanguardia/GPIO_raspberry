@@ -16,6 +16,12 @@ groups = [
 
 my_topic = 'Grupo_4'
 
+datos = {
+    'Grupo_1': [0, 0, 0, 0, 0, 0,0 ]
+
+}
+
+
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
     print("Conexion: "+str(rc))
